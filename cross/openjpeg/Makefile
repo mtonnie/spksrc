@@ -16,5 +16,5 @@ CONFIGURE_TARGET = myConfigure
 include ../../mk/spksrc.cross-cc.mk
 
 myConfigure:
-	$(RUN) cmake -DCMAKE_INSTALL_PREFIX=$(STAGING_INSTALL_PREFIX)
+	$(RUN) cmake -DBUILD_PKGCONFIG_FILES=on -DCMAKE_INSTALL_PREFIX=$(STAGING_INSTALL_PREFIX)
 
