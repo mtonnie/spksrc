@@ -1,0 +1,14 @@
+kind: pipeline
+name: arch-monaco
+steps:
+#- name: restore-cache
+- name: build
+  image: synocommunity/spksrc
+  commands: 
+  - make setup-synocommunity
+  - echo ${DRONE_BRANCH}
+  - echo ${DRONE_BRANCH/-/\/}
+  - cd ${DRONE_BRANCH/-/\/}
+  - make arch-monaco
+#- name: rebuild-cache
+#- name: notify
