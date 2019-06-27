@@ -17,5 +17,6 @@ CONFIGURE_TARGET = myConfigure
 include ../../mk/spksrc.cross-cc.mk
 
 myConfigure:
+    $(RUN) echo $(STAGING_INSTALL_PREFIX)
 	$(RUN) cmake -DCMAKE_INSTALL_PREFIX=$(STAGING_INSTALL_PREFIX) -DOpenJPEG_DIR=$(STAGING_INSTALL_PREFIX)/lib/openjpeg-2.3
 
