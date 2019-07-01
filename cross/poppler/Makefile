@@ -14,8 +14,11 @@ LICENSE  = ???
 
 CONFIGURE_TARGET = myConfigure
 
+CMAKE_ARGS = -DCMAKE_INSTALL_PREFIX=$(INSTALL_PREFIX)
+CMAKE_ARGS += -DBUILD_TESTS=OFF
+
 include ../../mk/spksrc.cross-cc.mk
 
 myConfigure:
-	$(RUN) cmake
+	$(RUN) cmake $(CMAKE_ARGS)
 
