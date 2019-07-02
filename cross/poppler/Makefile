@@ -6,7 +6,7 @@ PKG_DIST_SITE = https://$(PKG_NAME).freedesktop.org
 
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
-BUILD_DEPENDS = cross/fontconfig cross/libiconv cross/libjpeg cross/libxml2 cross/openjpeg cross/zlib cross/freetype
+BUILD_DEPENDS = cross/fontconfig cross/libiconv cross/libjpeg cross/libxml2 cross/openjpeg cross/zlib
 
 HOMEPAGE = https://poppler.freedesktop.org/
 COMMENT  = Poppler is a PDF rendering library based on the xpdf-3.0 code base. 
@@ -26,9 +26,10 @@ include ../../mk/spksrc.cross-cc.mk
 
 .PHONY: poppler_custom_configure
 poppler_custom_configure:
+	$(RUN) printenv
 	$(RUN) cmake $(CMAKE_ARGS)
 
-.PHONY
+.PHONY: poppler_post_install
 poppler_post_install:
 	$(RUN) sed -i '/prefix=/c\prefix='"${INSTALL_DIR}/${INSTALL_PREFIX}" "${INSTALL_DIR}${INSTALL_PREFIX}/lib/pkgconfig/libopenjp2.pc"
 
