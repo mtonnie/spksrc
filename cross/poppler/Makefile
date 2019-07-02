@@ -13,7 +13,6 @@ COMMENT  = Poppler is a PDF rendering library based on the xpdf-3.0 code base.
 LICENSE  = ???
 
 CONFIGURE_TARGET = poppler_custom_configure
-POST_INSTALL_TARGET = poppler_post_install
 
 CMAKE_ARGS = -DCMAKE_INSTALL_PREFIX=$(STAGING_INSTALL_PREFIX)
 CMAKE_ARGS += -DCMAKE_BUILD_TYPE=release
@@ -21,15 +20,9 @@ CMAKE_ARGS += -DBUILD_GTK_TESTS=OFF
 CMAKE_ARGS += -DBUILD_QT5_TESTS=OFF
 CMAKE_ARGS += -DBUILD_CPP_TESTS=OFF
 
-
 include ../../mk/spksrc.cross-cc.mk
 
 .PHONY: poppler_custom_configure
 poppler_custom_configure:
 	$(RUN) printenv
 	$(RUN) cmake $(CMAKE_ARGS)
-
-.PHONY: poppler_post_install
-poppler_post_install:
-	$(RUN) sed -i '/prefix=/c\prefix='"${INSTALL_DIR}/${INSTALL_PREFIX}" "${INSTALL_DIR}${INSTALL_PREFIX}/lib/pkgconfig/libopenjp2.pc"
-
