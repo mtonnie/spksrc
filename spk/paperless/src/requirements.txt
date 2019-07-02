@@ -32,7 +32,7 @@ langdetect==1.0.7
 markupsafe==1.1.0
 more-itertools==5.0.0
 packaging==19.0
-#pdftotext==2.1.1
+pdftotext==2.1.1
 #pillow==5.4.1
 pluggy==0.8.1
 ply==3.11

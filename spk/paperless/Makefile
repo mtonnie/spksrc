@@ -5,6 +5,7 @@ SPK_ICON = src/$(SPK_NAME).png
 
 BUILD_DEPENDS = cross/python3 cross/setuptools cross/pip cross/wheel
 BUILD_DEPENDS += cross/$(SPK_NAME)
+BUILD_DEPENDS += cross/poppler
 WHEELS = src/requirements.txt
 SPK_DEPENDS = "python3>=3.5.6-8"
 
