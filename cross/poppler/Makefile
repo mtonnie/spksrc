@@ -6,7 +6,7 @@ PKG_DIST_SITE = https://$(PKG_NAME).freedesktop.org
 
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
-BUILD_DEPENDS = cross/fontconfig cross/libiconv cross/libjpeg cross/libxml2 cross/openjpeg cross/zlib
+BUILD_DEPENDS = cross/fontconfig cross/libiconv cross/libjpeg cross/libxml2 cross/openjpeg cross/zlib cross/freetype
 
 HOMEPAGE = https://poppler.freedesktop.org/
 COMMENT  = Poppler is a PDF rendering library based on the xpdf-3.0 code base. 
