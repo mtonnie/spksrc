@@ -25,7 +25,7 @@ openjpeg_custom_configure:
 
 .PHONY: openjpeg_post_install
 openjpeg_post_install:
-	$(RUN) sed -i '/prefix=/c\prefix='"${INSTALL_DIR}/${INSTALL_PREFIX}" "${INSTALL_DIR}${INSTALL_PREFIX}/lib/pkgconfig/libopenjp2.pc"
+	$(RUN) sed -i '/prefix=/c\prefix='"${INSTALL_DIR}${INSTALL_PREFIX}" "${INSTALL_DIR}${INSTALL_PREFIX}/lib/pkgconfig/libopenjp2.pc"
 
 
 
