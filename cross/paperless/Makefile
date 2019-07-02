@@ -10,12 +10,12 @@ LICENSE  = GPLv3
 
 CONFIGURE_TARGET = nop
 COMPILE_TARGET = nop
-INSTALL_TARGET = paperless_install
+INSTALL_TARGET = paperless_custom_install
 
 include ../../mk/spksrc.cross-cc.mk
 
-.PHONY: paperless_install
-paperless_install:
+.PHONY: paperless_custom_install
+paperless_custom_install:
         mkdir -p $(STAGING_INSTALL_PREFIX)/share/paperless
         cp -r  $(WORK_DIR)/$(PKG_DIR)/src/* $(STAGING_INSTALL_PREFIX)/share/paperless/
         rm  $(STAGING_INSTALL_PREFIX)/share/paperless/tox.ini
