@@ -12,7 +12,7 @@ HOMEPAGE = https://poppler.freedesktop.org/
 COMMENT  = Poppler is a PDF rendering library based on the xpdf-3.0 code base. 
 LICENSE  = ???
 
-ENV += DEST_DIR="/")
+ENV += DEST_DIR="/"
 
 CONFIGURE_TARGET = poppler_custom_configure
 
