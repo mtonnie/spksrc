@@ -14,7 +14,7 @@ LICENSE  = ???
 
 CONFIGURE_TARGET = poppler_custom_configure
 
-CMAKE_ARGS = -DCMAKE_INSTALL_PREFIX=$(STAGING_INSTALL_PREFIX)
+#CMAKE_ARGS = -DCMAKE_INSTALL_PREFIX=$(STAGING_INSTALL_PREFIX)
 CMAKE_ARGS += -DCMAKE_BUILD_TYPE=release
 CMAKE_ARGS += -DDEST_DIR=/
 #CMAKE_ARGS += -DBUILD_GTK_TESTS=OFF
@@ -26,4 +26,4 @@ include ../../mk/spksrc.cross-cc.mk
 .PHONY: poppler_custom_configure
 poppler_custom_configure:
 	$(RUN) printenv
-	$(RUN) cmake $(CMAKE_ARGS)
+	$(RUN) cmake $(CMAKE_ARGS) -DCMAKE_INSTALL_PREFIX=$(STAGING_INSTALL_PREFIX)
