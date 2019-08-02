@@ -1,5 +1,5 @@
 PKG_NAME = poppler
-PKG_VERS = 0.69.0
+PKG_VERS = 0.79.0
 PKG_EXT = tar.xz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = https://$(PKG_NAME).freedesktop.org
@@ -12,12 +12,9 @@ HOMEPAGE = https://poppler.freedesktop.org/
 COMMENT  = Poppler is a PDF rendering library based on the xpdf-3.0 code base. 
 LICENSE  = ???
 
-ENV += DEST_DIR="/"
-
 CONFIGURE_TARGET = poppler_custom_configure
 
 CMAKE_ARGS = -DCMAKE_INSTALL_PREFIX=$(STAGING_INSTALL_PREFIX)
-CMAKE_ARGS = -DDEST_DIR="/"
 CMAKE_ARGS += -DCMAKE_BUILD_TYPE=release
 #CMAKE_ARGS += -DBUILD_GTK_TESTS=OFF
 #CMAKE_ARGS += -DBUILD_QT5_TESTS=OFF
