@@ -14,20 +14,10 @@ LICENSE  = ???
 
 CONFIGURE_TARGET = poppler_custom_configure
 
-CMAKE_ARGS = -DCMAKE_INSTALL_PREFIX=/
-CMAKE_ARGS += -DCMAKE_BUILD_TYPE=release
-CMAKE_ARGS += -DDEST_DIR=/
-#CMAKE_ARGS += -DBUILD_GTK_TESTS=OFF
-#CMAKE_ARGS += -DBUILD_QT5_TESTS=OFF
-#CMAKE_ARGS += -DBUILD_CPP_TESTS=OFF
-
 include ../../mk/spksrc.cross-cc.mk
 
 .PHONY: poppler_custom_configure poppler_custom_install
 poppler_custom_configure:
-	$(RUN) printenv
-	#$(RUN) cmake $(CMAKE_ARGS) 
-
 	$(RUN) cmake \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_INSTALL_PREFIX=$(INSTALL_PREFIX) \
@@ -36,9 +26,6 @@ poppler_custom_configure:
 	-DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER \
 	-DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY \
 	-DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY
-	#-DCMAKE_SYSTEM_NAME=Linux \
-	#-DCMAKE_C_COMPILER=$(TC_PATH)$(TC_PREFIX)gcc \
-	#-DCMAKE_EXE_LINKER_FLAGS="-L$(INSTALL_DIR)$(INSTALL_PREFIX)/lib -Wl,--rpath-link,$(INSTALL_DIR)$(INSTALL_PREFIX)/lib -Wl,--rpath,$(INSTALL_PREFIX)/lib" \
 	
 poppler_custom_install:
 	$(RUN) $(MAKE) install DESTDIR=$(INSTALL_DIR)
