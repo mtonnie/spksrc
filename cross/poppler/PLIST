@@ -9,7 +9,6 @@ bin:bin/pdftoppm
 bin:bin/pdftops
 bin:bin/pdftotext
 bin:bin/pdfunite
-
-lnk:lib/libpoppler.so
-lnk:lib/libpoppler.so.87
 lib:lib/libpoppler.so.87.0.0
+lnk:lib/libpoppler.so.87
+lnk:lib/libpoppler.so
