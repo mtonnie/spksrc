@@ -40,7 +40,7 @@ ply==3.11
 py==1.7.0
 pycodestyle==2.4.0
 pygments==2.3.1
-#pyocr==0.5.3
+pyocr==0.5.3
 pyparsing==2.3.1
 pytest-cov==2.6.1
 pytest-django==3.4.5
