@@ -11,4 +11,6 @@ DEPENDS = cross/poppler
 HOMEPAGE = https://github.com/jalan/pdftotext
 LICENSE  = MIT
 
+ADDITIONAL_CFLAGS = -std=c++11
+
 include ../../mk/spksrc.python-wheel.mk
