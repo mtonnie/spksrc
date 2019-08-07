@@ -4,8 +4,7 @@ SPK_REV = 1
 SPK_ICON = src/$(SPK_NAME).png
 
 BUILD_DEPENDS = cross/python3 cross/setuptools cross/pip cross/wheel
-#DEPENDS += cross/pdftotext
-DEPENDS += cross/poppler
+DEPENDS += cross/pdftotext
 DEPENDS += cross/unpaper
 DEPENDS += cross/pillow
 DEPENDS += cross/$(SPK_NAME)
