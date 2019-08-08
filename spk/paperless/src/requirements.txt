@@ -16,7 +16,7 @@ pytz==2018.9
 django-cors-headers==2.4.0
 django-crispy-forms==1.7.2
 django-extensions==2.1.4
- six [required: >=1.2, installed: 1.12.0]
+ six==1.12.0
 django-filter==2.1.0
  django==2.0.10
    pytz==2018.9
