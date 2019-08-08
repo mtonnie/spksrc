@@ -1,71 +1,154 @@
-alabaster==0.7.12
-apipkg==1.5
-atomicwrites==1.2.1
-#attrs==18.2.0
-babel==2.6.0
-certifi==2018.11.29
-chardet==3.0.4
-coverage==4.5.2
-coveralls==1.5.1
+#coveralls==1.5.1
+# coverage [required: >=3.6, installed: 4.5.2]
+# docopt [required: >=0.6.1, installed: 0.6.2]
+# requests [required: >=1.0.0, installed: 2.21.0]
+#   certifi [required: >=2017.4.17, installed: 2018.11.29]
+#   chardet [required: >=3.0.2,<3.1.0, installed: 3.0.4]
+#   idna [required: >=2.5,<2.9, installed: 2.8]
+#   urllib3 [required: >=1.21.1,<1.25, installed: 1.24.1]
 dateparser==0.7.0
+# python-dateutil [required: Any, installed: 2.7.5]
+#   six [required: >=1.5, installed: 1.12.0]
+# pytz [required: Any, installed: 2018.9]
+# regex [required: Any, installed: 2019.1.24]
+# tzlocal [required: Any, installed: 1.5.1]
+#   pytz [required: Any, installed: 2018.9]
 django-cors-headers==2.4.0
 django-crispy-forms==1.7.2
 django-extensions==2.1.4
+# six [required: >=1.2, installed: 1.12.0]
 django-filter==2.1.0
-django==2.0.10
+# Django [required: >=1.11, installed: 2.0.10]
+#   pytz [required: Any, installed: 2018.9]
 djangoql==0.12.3
+# ply [required: >=3.8, installed: 3.11]
 djangorestframework==3.9.1
-docopt==0.6.2
-docutils==0.14
-execnet==1.5.0
-factory-boy==2.11.1
-faker==1.0.2
-filelock==3.0.10
+#factory-boy==2.11.1
+# Faker [required: >=0.7.0, installed: 1.0.2]
+#   python-dateutil [required: >=2.4, installed: 2.7.5]
+#     six [required: >=1.5, installed: 1.12.0]
+#   six [required: >=1.10, installed: 1.12.0]
+#   text-unidecode [required: ==1.2, installed: 1.2]
 filemagic==1.6
-fuzzywuzzy[speedup]==0.15.0
+fuzzywuzzy==0.15.0
 gunicorn==19.9.0
-idna==2.8
-imagesize==1.1.0
 inotify-simple==1.1.8
-jinja2==2.10
 langdetect==1.0.7
-markupsafe==1.1.0
-more-itertools==5.0.0
-packaging==19.0
-#pdftotext==2.1.1
-#pillow==5.4.1
-#pluggy==0.8.1
-ply==3.11
-#psycopg2==2.7.7
-py==1.7.0
-pycodestyle==2.4.0
-pygments==2.3.1
+# six [required: Any, installed: 1.12.0]
+pdftotext==2.1.1
+#pipdeptree==0.13.2
+# pip [required: >=6.0.0, installed: 19.1.1]
+#pipenv==2018.11.26
+# certifi [required: Any, installed: 2018.11.29]
+# pip [required: >=9.0.1, installed: 19.1.1]
+# setuptools [required: >=36.2.1, installed: 40.6.2]
+# virtualenv [required: Any, installed: 16.3.0]
+#   setuptools [required: >=18.0.0, installed: 40.6.2]
+# virtualenv-clone [required: >=0.2.5, installed: 0.5.3]
+psycopg2==2.7.7
+#pycodestyle==2.4.0
 pyocr==0.5.3
-pyparsing==2.3.1
-pytest-cov==2.6.1
-pytest-django==3.4.5
-pytest-env==0.6.2
-pytest-forked==1.0.1
-pytest-sugar==0.9.2
+# Pillow [required: Any, installed: 5.4.1]
+# six [required: Any, installed: 1.12.0]
+#pytest-cov==2.6.1
+# coverage [required: >=4.4, installed: 4.5.2]
+# pytest [required: >=3.6, installed: 4.1.1]
+#   atomicwrites [required: >=1.0, installed: 1.2.1]
+#   attrs [required: >=17.4.0, installed: 18.2.0]
+#   more-itertools [required: >=4.0.0, installed: 5.0.0]
+#     six [required: >=1.0.0,<2.0.0, installed: 1.12.0]
+#   pluggy [required: >=0.7, installed: 0.8.1]
+#   py [required: >=1.5.0, installed: 1.7.0]
+#   setuptools [required: Any, installed: 40.6.2]
+#   six [required: >=1.10.0, installed: 1.12.0]
+#pytest-django==3.4.5
+# pytest [required: >=3.6, installed: 4.1.1]
+#   atomicwrites [required: >=1.0, installed: 1.2.1]
+#   attrs [required: >=17.4.0, installed: 18.2.0]
+#   more-itertools [required: >=4.0.0, installed: 5.0.0]
+#     six [required: >=1.0.0,<2.0.0, installed: 1.12.0]
+#   pluggy [required: >=0.7, installed: 0.8.1]
+#   py [required: >=1.5.0, installed: 1.7.0]
+#   setuptools [required: Any, installed: 40.6.2]
+#   six [required: >=1.10.0, installed: 1.12.0]
+#pytest-env==0.6.2
+# pytest [required: >=2.6.0, installed: 4.1.1]
+#   atomicwrites [required: >=1.0, installed: 1.2.1]
+#   attrs [required: >=17.4.0, installed: 18.2.0]
+#   more-itertools [required: >=4.0.0, installed: 5.0.0]
+#     six [required: >=1.0.0,<2.0.0, installed: 1.12.0]
+#   pluggy [required: >=0.7, installed: 0.8.1]
+#   py [required: >=1.5.0, installed: 1.7.0]
+#   setuptools [required: Any, installed: 40.6.2]
+#   six [required: >=1.10.0, installed: 1.12.0]
+#pytest-sugar==0.9.2
+# packaging [required: >=14.1, installed: 19.0]
+#   pyparsing [required: >=2.0.2, installed: 2.3.1]
+#   six [required: Any, installed: 1.12.0]
+# pytest [required: >=2.9, installed: 4.1.1]
+#   atomicwrites [required: >=1.0, installed: 1.2.1]
+#   attrs [required: >=17.4.0, installed: 18.2.0]
+#   more-itertools [required: >=4.0.0, installed: 5.0.0]
+#     six [required: >=1.0.0,<2.0.0, installed: 1.12.0]
+#   pluggy [required: >=0.7, installed: 0.8.1]
+#   py [required: >=1.5.0, installed: 1.7.0]
+#   setuptools [required: Any, installed: 40.6.2]
+#   six [required: >=1.10.0, installed: 1.12.0]
+# termcolor [required: >=1.1.0, installed: 1.1.0]
 #pytest-xdist==1.26.0
-#pytest==4.1.1
-#python-dateutil==2.7.5
+# execnet [required: >=1.1, installed: 1.5.0]
+#   apipkg [required: >=1.4, installed: 1.5]
+# pytest [required: >=3.6.0, installed: 4.1.1]
+#   atomicwrites [required: >=1.0, installed: 1.2.1]
+#   attrs [required: >=17.4.0, installed: 18.2.0]
+#   more-itertools [required: >=4.0.0, installed: 5.0.0]
+#     six [required: >=1.0.0,<2.0.0, installed: 1.12.0]
+#   pluggy [required: >=0.7, installed: 0.8.1]
+#   py [required: >=1.5.0, installed: 1.7.0]
+#   setuptools [required: Any, installed: 40.6.2]
+#   six [required: >=1.10.0, installed: 1.12.0]
+# pytest-forked [required: Any, installed: 1.0.1]
+#   pytest [required: >=3.1.0, installed: 4.1.1]
+#     atomicwrites [required: >=1.0, installed: 1.2.1]
+#     attrs [required: >=17.4.0, installed: 18.2.0]
+#     more-itertools [required: >=4.0.0, installed: 5.0.0]
+#       six [required: >=1.0.0,<2.0.0, installed: 1.12.0]
+#     pluggy [required: >=0.7, installed: 0.8.1]
+#     py [required: >=1.5.0, installed: 1.7.0]
+#     setuptools [required: Any, installed: 40.6.2]
+#     six [required: >=1.10.0, installed: 1.12.0]
+# six [required: Any, installed: 1.12.0]
 python-dotenv==0.10.1
 python-gnupg==0.4.4
-python-levenshtein==0.12.0
-pytz==2018.9
-regex==2019.1.24
-requests==2.21.0
-six==1.12.0
-snowballstemmer==1.2.1
-sphinx==1.8.3
-sphinxcontrib-websupport==1.1.0
-termcolor==1.1.0
-text-unidecode==1.2
-toml==0.10.0
+python-Levenshtein==0.12.0
+# setuptools [required: Any, installed: 40.6.2]
+#Sphinx==1.8.3
+# alabaster [required: >=0.7,<0.8, installed: 0.7.12]
+# babel [required: >=1.3,!=2.0, installed: 2.6.0]
+#   pytz [required: >=0a, installed: 2018.9]
+# docutils [required: >=0.11, installed: 0.14]
+# imagesize [required: Any, installed: 1.1.0]
+# Jinja2 [required: >=2.3, installed: 2.10]
+#   MarkupSafe [required: >=0.23, installed: 1.1.0]
+# packaging [required: Any, installed: 19.0]
+#   pyparsing [required: >=2.0.2, installed: 2.3.1]
+#   six [required: Any, installed: 1.12.0]
+# Pygments [required: >=2.0, installed: 2.3.1]
+# requests [required: >=2.0.0, installed: 2.21.0]
+#   certifi [required: >=2017.4.17, installed: 2018.11.29]
+#   chardet [required: >=3.0.2,<3.1.0, installed: 3.0.4]
+#   idna [required: >=2.5,<2.9, installed: 2.8]
+#   urllib3 [required: >=1.21.1,<1.25, installed: 1.24.1]
+# setuptools [required: Any, installed: 40.6.2]
+# six [required: >=1.5, installed: 1.12.0]
+# snowballstemmer [required: >=1.1, installed: 1.2.1]
+# sphinxcontrib-websupport [required: Any, installed: 1.1.0]
 #tox==3.7.0
-tzlocal==1.5.1
-urllib3==1.24.1
-#virtualenv==16.3.0
-
-
+# filelock [required: >=3.0.0,<4, installed: 3.0.10]
+# pluggy [required: >=0.3.0,<1, installed: 0.8.1]
+# py [required: >=1.4.17,<2, installed: 1.7.0]
+# setuptools [required: >=30.0.0, installed: 40.6.2]
+# six [required: >=1.0.0,<2, installed: 1.12.0]
+# toml [required: >=0.9.4, installed: 0.10.0]
+# virtualenv [required: >=1.11.2, installed: 16.3.0]
+#   setuptools [required: >=18.0.0, installed: 40.6.2]
