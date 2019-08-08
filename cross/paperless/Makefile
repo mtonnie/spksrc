@@ -8,15 +8,6 @@ PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 HOMEPAGE = https://paperless.readthedocs.io
 LICENSE  = GPLv3
 
-BUILD_DEPENDS = cross/python3 cross/setuptools cross/pip cross/wheel
-WHEELS += attrs==18.2.0
-WHEELS += pluggy==0.8.1
-WHEELS += pytest-xdist==1.26.0
-WHEELS += pytest==4.1.1
-WHEELS += python-dateutil==2.7.5
-WHEELS += tox==3.7.0
-WHEELS += virtualenv==16.3.0
-
 CONFIGURE_TARGET = nop
 COMPILE_TARGET = nop
 INSTALL_TARGET = paperless_custom_install
