@@ -7,12 +7,12 @@
 #   idna [required: >=2.5,<2.9, installed: 2.8]
 #   urllib3 [required: >=1.21.1,<1.25, installed: 1.24.1]
 dateparser==0.7.0
-python-dateutil==2.7.5
-six==1.12.0
-pytz==2018.9
-regex==2019.1.24
-tzlocal==1.5.1
-pytz==2018.9
+ python-dateutil==2.7.5
+   six==1.12.0
+ pytz==2018.9
+ regex==2019.1.24
+ tzlocal==1.5.1
+   pytz==2018.9
 django-cors-headers==2.4.0
 django-crispy-forms==1.7.2
 django-extensions==2.1.4
@@ -45,7 +45,7 @@ pdftotext==2.1.1
 # virtualenv [required: Any, installed: 16.3.0]
 #   setuptools [required: >=18.0.0, installed: 40.6.2]
 # virtualenv-clone [required: >=0.2.5, installed: 0.5.3]
-psycopg2==2.7.7
+#psycopg2==2.7.7
 #pycodestyle==2.4.0
 pyocr==0.5.3
 # Pillow [required: Any, installed: 5.4.1]
