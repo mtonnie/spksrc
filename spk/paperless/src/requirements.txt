@@ -7,26 +7,26 @@
 #   idna [required: >=2.5,<2.9, installed: 2.8]
 #   urllib3 [required: >=1.21.1,<1.25, installed: 1.24.1]
 dateparser==0.7.0
-# python-dateutil [required: Any, installed: 2.7.5]
-#   six [required: >=1.5, installed: 1.12.0]
-# pytz [required: Any, installed: 2018.9]
-# regex [required: Any, installed: 2019.1.24]
-# tzlocal [required: Any, installed: 1.5.1]
-#   pytz [required: Any, installed: 2018.9]
+ python-dateutil==2.7.5
+   six==1.12.0
+ pytz==2018.9
+ regex==2019.1.24
+ tzlocal==1.5.1
+   pytz==2018.9
 django-cors-headers==2.4.0
 django-crispy-forms==1.7.2
 django-extensions==2.1.4
-# six [required: >=1.2, installed: 1.12.0]
+ six [required: >=1.2, installed: 1.12.0]
 django-filter==2.1.0
-# Django [required: >=1.11, installed: 2.0.10]
-#   pytz [required: Any, installed: 2018.9]
+ django==2.0.10
+   pytz==2018.9
 djangoql==0.12.3
-# ply [required: >=3.8, installed: 3.11]
+ ply==3.11
 djangorestframework==3.9.1
 #factory-boy==2.11.1
 # Faker [required: >=0.7.0, installed: 1.0.2]
 #   python-dateutil [required: >=2.4, installed: 2.7.5]
-#     six [required: >=1.5, installed: 1.12.0]
+#     six==1.12.0
 #   six [required: >=1.10, installed: 1.12.0]
 #   text-unidecode [required: ==1.2, installed: 1.2]
 filemagic==1.6
@@ -34,7 +34,7 @@ fuzzywuzzy==0.15.0
 gunicorn==19.9.0
 inotify-simple==1.1.8
 langdetect==1.0.7
-# six [required: Any, installed: 1.12.0]
+ six==1.12.0
 pdftotext==2.1.1
 #pipdeptree==0.13.2
 # pip [required: >=6.0.0, installed: 19.1.1]
@@ -49,7 +49,7 @@ psycopg2==2.7.7
 #pycodestyle==2.4.0
 pyocr==0.5.3
 # Pillow [required: Any, installed: 5.4.1]
-# six [required: Any, installed: 1.12.0]
+ six==1.12.0
 #pytest-cov==2.6.1
 # coverage [required: >=4.4, installed: 4.5.2]
 # pytest [required: >=3.6, installed: 4.1.1]
@@ -140,7 +140,7 @@ python-Levenshtein==0.12.0
 #   idna [required: >=2.5,<2.9, installed: 2.8]
 #   urllib3 [required: >=1.21.1,<1.25, installed: 1.24.1]
 # setuptools [required: Any, installed: 40.6.2]
-# six [required: >=1.5, installed: 1.12.0]
+# six==1.12.0
 # snowballstemmer [required: >=1.1, installed: 1.2.1]
 # sphinxcontrib-websupport [required: Any, installed: 1.1.0]
 #tox==3.7.0
