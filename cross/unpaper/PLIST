@@ -1,4 +1,4 @@
 bin:bin/unpaper
-lnk:lib/libavformat.so
-lnk:lib/libavformat.so.58
 lib:lib/libavformat.so.58.20.100
+lnk:lib/libavformat.so.58
+lnk:lib/libavformat.so
