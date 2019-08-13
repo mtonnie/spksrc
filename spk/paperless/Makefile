@@ -20,6 +20,8 @@ STARTABLE = no
 HOMEPAGE = https://paperless.readthedocs.io
 LICENSE  = GPL-3.0
 
+SERVICE_SETUP = src/service-setup.sh
+
 PIP_WHEEL_ADDITIONAL_OPTIONS = --no-use-pep517
 
 include ../../mk/spksrc.spk.mk
