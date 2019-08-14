@@ -16,8 +16,8 @@ service_postinst ()
     #ln -s ${SYNOPKG_PKGDEST}/env/bin/borgmatic /usr/local/bin/borgmatic
 }
 
-service_postuninst ()
-{
+#service_postuninst ()
+##{
     #rm -f /usr/local/bin/borg
     #rm -f /usr/local/bin/borgmatic
-}
+#}
