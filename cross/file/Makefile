@@ -13,4 +13,6 @@ LICENSE  = BSD-2-Clause
 
 GNU_CONFIGURE = 1
 
+CONFIGURE_ARGS += --prefix=$(INSTALL_PREFIX) --enable-shared
+
 include ../../mk/spksrc.cross-cc.mk
