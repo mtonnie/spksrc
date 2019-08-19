@@ -1,0 +1,4 @@
+bin:bin/file
+lib:lib/libmagic.so.1.0.0
+lnk:lib/libmagic.so.1
+lnk:lib/libmagic.so
