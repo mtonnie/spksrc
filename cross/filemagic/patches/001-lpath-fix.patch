@@ -1,0 +1,17 @@
+--- magic/api.py.orig   2019-08-20 07:42:06.561523889 +0000
++++ magic/api.py        2019-08-20 07:52:03.729579910 +0000
+@@ -4,12 +4,12 @@
+
+ See libmagic(3) for low level details.
+ """
+-import ctypes.util
+ import ctypes
++import os.path
+ import platform
+ import warnings
+
+-libname = ctypes.util.find_library('magic')
++libname = os.path.expandvars('$SYNOPKG_PKGDEST/lib/libmagic.so')
+ if not libname:
+     if platform.system() == 'SunOS':
+         libname = 'libmagic.so'
