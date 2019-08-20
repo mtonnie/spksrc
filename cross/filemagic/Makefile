@@ -11,6 +11,11 @@ DEPENDS = cross/file
 HOMEPAGE = https://filemagic.readthedocs.io/en/latest/
 LICENSE  = Apache License 2.0 
 
-ADDITIONAL_CFLAGS = -std=c++11
+COMPILE_TARGET = filemagic_custom_compile
 
 include ../../mk/spksrc.python-wheel.mk
+
+.PHONY: filemagic_custom_compile
+filemagic_custom_compile:
+	#$(RUN) CROSS_COMPILE=$(TC_PATH)$(TC_PREFIX) $(MAKE) busybox
+	$(RUN) $(BUILD_ARGS) bdist_wheel -b $(WORK_DIR)/wheelbuild -d $(WORK_DIR)/wheelhouse
