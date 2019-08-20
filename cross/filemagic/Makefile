@@ -5,10 +5,12 @@ PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = https://files.pythonhosted.org/packages/source/f/$(PKG_NAME)
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
-#BUILD_DEPENDS = cross/python3 cross/setuptools cross/pip cross/wheel
+BUILD_DEPENDS = cross/python3 cross/setuptools cross/pip cross/wheel
 DEPENDS = cross/file 
 
 HOMEPAGE = https://filemagic.readthedocs.io/en/latest/
 LICENSE  = Apache License 2.0 
+
+ADDITIONAL_CFLAGS = -std=c++11
 
 include ../../mk/spksrc.python-wheel.mk
