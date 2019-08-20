@@ -17,5 +17,4 @@ include ../../mk/spksrc.python-wheel.mk
 
 .PHONY: filemagic_custom_compile
 filemagic_custom_compile:
-	#$(RUN) CROSS_COMPILE=$(TC_PATH)$(TC_PREFIX) $(MAKE) busybox
-	$(RUN) $(BUILD_ARGS) bdist_wheel -b $(WORK_DIR)/wheelbuild -d $(WORK_DIR)/wheelhouse
+	$(RUN) PYTHONPATH=$(PYTHONPATH) $(HOSTPYTHON) setup.py bdist_wheel -b $(WORK_DIR)/wheelbuild -d $(WORK_DIR)/wheelhouse
