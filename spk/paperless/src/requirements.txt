@@ -29,7 +29,7 @@ djangorestframework==3.9.1
 #     six==1.12.0
 #   six [required: >=1.10, installed: 1.12.0]
 #   text-unidecode [required: ==1.2, installed: 1.2]
-filemagic==1.6
+#filemagic==1.6
 fuzzywuzzy==0.15.0
 gunicorn==19.9.0
 inotify-simple==1.1.8
