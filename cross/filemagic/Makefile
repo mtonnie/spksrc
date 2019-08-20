@@ -11,4 +11,6 @@ DEPENDS = cross/file
 HOMEPAGE = https://filemagic.readthedocs.io/en/latest/
 LICENSE  = Apache License 2.0 
 
+COMPILE_TARGET = nop
+
 include ../../mk/spksrc.python-wheel.mk
