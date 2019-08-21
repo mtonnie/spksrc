@@ -21,15 +21,15 @@ service_postinst ()
     if [ ! -d ${PAPERLESS_STATICDIR} ]; then
         mkdir -p ${PAPERLESS_STATICDIR}
     fi
-    ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} collectstatic >> ${INST_LOG}
+    PAPERLESS_STATICDIR="${PAPERLESS_STATICDIR}" ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} collectstatic >> ${INST_LOG}
 
     if [ ! -d ${PAPERLESS_DBDIR} ]; then
         mkdir -p ${PAPERLESS_DBDIR}
     fi
-    ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} make migrations >> ${INST_LOG}
-    ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} make migrate >> ${INST_LOG}
+    PAPERLESS_DBDIR="${PAPERLESS_DBDIR}" ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} make migrations >> ${INST_LOG}
+    PAPERLESS_DBDIR="${PAPERLESS_DBDIR}" ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} make migrate >> ${INST_LOG}
     
-    ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'adminpass')"
+    PAPERLESS_DBDIR="${PAPERLESS_DBDIR}" ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'adminpass')"
 
     if [ ! -d ${PAPERLESS_MEDIADIR} ]; then
         mkdir -p ${PAPERLESS_MEDIADIR}
