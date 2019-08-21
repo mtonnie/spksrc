@@ -8,6 +8,7 @@ PAPERLESS_DBDIR="${SYNOPKG_PKGDEST}/var/database"
 PAPERLESS_STATICDIR="${SYNOPKG_PKGDEST}/var/static"
 PAPERLESS_MEDIADIR="${SYNOPKG_PKGDEST}/var/media"
 
+PAPERLESS_ENV="PAPERLESS_DBDIR=\"${PAPERLESS_DBDIR}\" PAPERLESS_STATICDIR=\"${PAPERLESS_STATICDIR}\" PAPERLESS_MEDIADIR=\"${PAPERLESS_MEDIADIR}\""
 
 service_postinst ()
 {
@@ -21,15 +22,15 @@ service_postinst ()
     if [ ! -d ${PAPERLESS_STATICDIR} ]; then
         mkdir -p ${PAPERLESS_STATICDIR}
     fi
-    PAPERLESS_STATICDIR="${PAPERLESS_STATICDIR}" ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} collectstatic >> ${INST_LOG}
+    ${PAPERLESS_ENV} ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} collectstatic >> ${INST_LOG}
 
     if [ ! -d ${PAPERLESS_DBDIR} ]; then
         mkdir -p ${PAPERLESS_DBDIR}
     fi
-    PAPERLESS_DBDIR="${PAPERLESS_DBDIR}" ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} make migrations >> ${INST_LOG}
-    PAPERLESS_DBDIR="${PAPERLESS_DBDIR}" ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} make migrate >> ${INST_LOG}
+    ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} makemigrations >> ${INST_LOG}
+    ${PAPERLESS_ENV} ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} migrate >> ${INST_LOG}
     
-    PAPERLESS_DBDIR="${PAPERLESS_DBDIR}" ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'adminpass')"
+    ${PAPERLESS_ENV} ${SYNOPKG_PKGDEST}/env/bin/python3 ${MANAGE_PY} shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'adminpass')"
 
     if [ ! -d ${PAPERLESS_MEDIADIR} ]; then
         mkdir -p ${PAPERLESS_MEDIADIR}
