@@ -1,5 +1,13 @@
 #!/bin/sh
 
+INST_ETC="/var/packages/${SYNOPKG_PKGNAME}/etc"
+INST_VARIABLES="${INST_ETC}/installer-variables"
+
+# Reload wizard variables stored by postinst
+if [ -r "${INST_VARIABLES}" ]; then
+    . ${INST_VARIABLES}
+fi
+
 FILES=$(ls "${SYNOPKG_PKGDEST}/share/tessdata/" | grep ".*.traineddata$")
 
 for FILE in $FILES
@@ -10,8 +18,6 @@ do
         INSTALLED_LANGS="${INSTALLED_LANGS}, '${FILE:0:3}'"
     fi
 done
-
-export INSTALLED_LANGS="$INSTALLED_LANGS"
 
 cat <<EOF > ${SYNOPKG_TEMP_LOGFILE}
 [{
@@ -125,11 +131,13 @@ cat <<EOF > ${SYNOPKG_TEMP_LOGFILE}
     var d=document;
     d.querySelector('input[type=text][name=wizard_search]').oninput=this.window.wizard_hide_func;
     debugger;
-    var installed_langs=[$INSTALLED_LANGS];
+    var installed_langs=[${INSTALLED_LANGS}];
     for (var lang of installed_langs) {
       var comp=Ext.getCmp(d.querySelector('input[type=checkbox][name=wizard_lang_'+lang+']').id);
       comp.setValue(true);
     }
+      var comp=Ext.getCmp(d.querySelector('input[type=hidden][name=wizard_kind]').parentElement.querySelector('input[type=text][role=combobox]').id);
+      comp.setValue(\"${WIZARD_KIND}\");
   }",
   "invalid_next_disabled": true,
   "items": [{

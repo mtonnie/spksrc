@@ -2,6 +2,8 @@ SPK_NAME = tesseract-ocr
 SPK_VERS = 4.1.0
 SPK_REV = 1
 
+BETA=1
+
 DEPENDS = cross/${SPK_NAME}
 
 MAINTAINER = SynoCommunity
