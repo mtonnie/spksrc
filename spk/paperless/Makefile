@@ -21,8 +21,20 @@ STARTABLE = no
 HOMEPAGE = https://paperless.readthedocs.io
 LICENSE  = GPL-3.0
 
+WIZARDS_DIR = $(WORK_DIR)/wizard
+
+SERVICE_USER = auto
 SERVICE_SETUP = src/service-setup.sh
+SERVICE_PORT = 8880
+SERVICE_PORT_TITLE = $(DISPLAY_NAME)
 
 PIP_WHEEL_ADDITIONAL_OPTIONS = --no-use-pep517
 
+POST_STRIP_TARGET = paperless_generate_wizards
+
 include ../../mk/spksrc.spk.mk
+
+.PHONY: paperless_generate_wizards
+paperless_generate_wizards:
+	install -m 755 -d $(WIZARDS_DIR)
+	$(RUN) ./src/wizard/gen_install_uifile.sh > $(WIZARDS_DIR)/install_uifile.sh
