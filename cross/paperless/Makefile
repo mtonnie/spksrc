@@ -1,6 +1,6 @@
 PKG_NAME = paperless
-PKG_VERS = 2.7.0
-PKG_EXT = tar.gz
+PKG_VERS = 1c956652f360e58409c8fca148b7662585dd1087
+PKG_EXT = zip
 PKG_DIST_NAME = $(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = https://github.com/the-paperless-project/$(PKG_NAME)/archive
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
