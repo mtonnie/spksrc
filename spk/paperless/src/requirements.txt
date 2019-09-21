@@ -8,7 +8,7 @@
 #   urllib3 [required: >=1.21.1,<1.25, installed: 1.24.1]
 dateparser==0.7.0
  python-dateutil==2.7.5
-   six==1.12.0
+#   six==1.12.0
  pytz==2018.9
  regex==2019.1.24
  tzlocal==1.5.1
@@ -16,7 +16,7 @@ dateparser==0.7.0
 django-cors-headers==2.4.0
 django-crispy-forms==1.7.2
 django-extensions==2.1.4
- six==1.12.0
+# six==1.12.0
 django-filter==2.1.0
  django==2.0.10
    pytz==2018.9
@@ -34,7 +34,7 @@ fuzzywuzzy==0.15.0
 gunicorn==19.9.0
 inotify-simple==1.1.8
 langdetect==1.0.7
- six==1.12.0
+# six==1.12.0
 #pdftotext==2.1.1
 #pipdeptree==0.13.2
 # pip [required: >=6.0.0, installed: 19.1.1]
@@ -49,7 +49,7 @@ langdetect==1.0.7
 #pycodestyle==2.4.0
 pyocr==0.5.3
 # Pillow [required: Any, installed: 5.4.1]
- six==1.12.0
+# six==1.12.0
 #pytest-cov==2.6.1
 # coverage [required: >=4.4, installed: 4.5.2]
 # pytest [required: >=3.6, installed: 4.1.1]
@@ -152,3 +152,4 @@ python-Levenshtein==0.12.0
 # toml [required: >=0.9.4, installed: 0.10.0]
 # virtualenv [required: >=1.11.2, installed: 16.3.0]
 #   setuptools [required: >=18.0.0, installed: 40.6.2]
+whitenoise==4.1.3
