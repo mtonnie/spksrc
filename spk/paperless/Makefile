@@ -6,6 +6,7 @@ SPK_ICON = src/$(SPK_NAME).png
 BETA = 1
 
 BUILD_DEPENDS = cross/python3 cross/setuptools cross/pip cross/wheel
+DEPENDS += cross/ghostscript
 DEPENDS += cross/filemagic
 DEPENDS += cross/pdftotext
 DEPENDS += cross/unpaper
@@ -13,7 +14,7 @@ DEPENDS += cross/pillow
 DEPENDS += cross/optipng
 DEPENDS += cross/$(SPK_NAME)
 WHEELS = src/requirements.txt
-SPK_DEPENDS = "python3>=3.6.8-9:tesseract-ocr>=4.1.0-1"
+SPK_DEPENDS = "python3>=3.6.8-9:tesseract-ocr>=4.1.0-1:imagemagick>=7.0.8-4"
 
 MAINTAINER = SynoCommunity
 DESCRIPTION = to be defined
@@ -30,7 +31,7 @@ SERVICE_USER = auto
 SERVICE_SETUP = src/service-setup.sh
 SERVICE_PORT = 8880
 SERVICE_PORT_TITLE = $(DISPLAY_NAME)
-SERVICE_WIZARD_SHARE = wizard_data_directory
+SERVICE_WIZARD_SHARE = wizard_shared_folder
 
 PIP_WHEEL_ADDITIONAL_OPTIONS = --no-use-pep517
 

@@ -1,26 +1,60 @@
 #!/bin/sh
 
-export WIZARD_SECRET_KEY="$(tr -dc 'a-zA-Z0-9@#&(-_=+)' < /dev/urandom | head -c50)"
+# Collect installed languages from tesseract and generate subitems for wizard
+LANGS="$(/usr/local/bin/tesseract --list-langs | sed -n '1!p')"
+for LANG in $LANGS
+do
+    SUBITEM="{\n\"key\": \"wizard_ocr_lang_${LANG}\",\n\"desc\": \"${LANG}\"\n}"
+    if [ -z "$SUBITEMS_OCR_LANGS" ]; then
+        SUBITEMS_OCR_LANGS="${SUBITEM}"
+    else
+        SUBITEMS_OCR_LANGS="${SUBITEMS_OCR_LANGS},\n${SUBITEM}"
+    fi
+done
+export SUBITEMS_OCR_LANGS="${SUBITEMS_OCR_LANGS}"
+
+# Generate default value for secret key
+export WIZARD_SECRET_KEY="$(tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c50)"
+
 
 cat <<EOF > $SYNOPKG_TEMP_LOGFILE
 [
     {
-        "step_title": "Configuration",
+        "step_title": "Storage settings",
+        "items": [{
+           "type": "combobox",
+           "subitems": [{
+               "key": "wizard_shared_folder",
+               "desc": "Shared folder",
+               "displayField": "name",
+               "valueField": "additional.real_path",
+               "editable": false,
+               "mode": "remote",
+               "api_store": {
+                  "api": "SYNO.FileStation.List",
+                  "method": "list_share",
+                  "version": 2,
+                  "baseParams": {
+                      "limit": 0,
+                      "offset": 0,
+                      "sort_by": "name",
+                      "additional": ["real_path"]
+                  },
+                  "root": "shares",
+                  "idProperty": "additional.real_path",
+                  "fields": ["name", "additional.real_path"]
+               },
+               "validator": {
+                   "fn": "{console.log(arguments};retrun true;"
+               }
+           }]
+        }]
+    }, {
+        "step_title": "Security settings",
         "items": [{
             "type": "textfield",
             "subitems": [
             {
-                "key": "wizard_data_directory",
-                "desc": "Data directory location",
-                "defaultValue": "${SYNOPKG_PKGDEST}",
-                "validator": {
-                    "allowBlank": false,
-                    "regex": {
-                        "expr": "/^\\\/volume[0-9]{1,2}\\\/[^<>: */?\"]*/",
-                        "errorText": "Path should begin with /volume?/ where ? is volume number (1-99)"
-                    }
-                }
-            }, {
                 "key": "wizard_secret_key",
                 "desc": "Secret key",
                 "defaultValue": "${WIZARD_SECRET_KEY}",
@@ -32,8 +66,8 @@ cat <<EOF > $SYNOPKG_TEMP_LOGFILE
                     }
                 }
             }, {
-                "key": "wizard_username",
-                "desc": "Username",
+                "key": "wizard_admin_username",
+                "desc": "Admin username",
                 "allowvalidator": {
                     "allowBlank": false,
                     "regex": {
@@ -42,8 +76,8 @@ cat <<EOF > $SYNOPKG_TEMP_LOGFILE
                     }
                 }
             }, {
-                "key": "wizard_email",
-                "desc": "E-Mail",
+                "key": "wizard_admin_email",
+                "desc": "Admin Email",
                 "validator": {
                     "allowBlank": false,
                     "vtype": "email"
@@ -52,12 +86,49 @@ cat <<EOF > $SYNOPKG_TEMP_LOGFILE
         }, {
             "type": "password",
             "subitems": [{
-                "key": "wizard_password",
-                "desc": "Password",
+                "key": "wizard_admin_password",
+                "desc": "Admin password",
                 "validator": {
                     "allowBlank": false,
                     "minLength": 8
                 }
+            }]
+        }]
+    }, {
+        "step_title": "OCR languages",
+        "items": [{
+            "type": "multiselect",
+            "subitems": [$(echo -e "${SUBITEMS_OCR_LANGS}")]
+        }]
+    }, {
+        "step_title": "Email settings",
+        "items": [{
+            "type": "textfield",
+            "subitems": [{
+                "key": "wizard_email_host",
+                "desc": "Host"
+           }, {
+                "key": "wizard_email_port",
+                "desc": "Port"
+           }, {
+                "key": "wizard_email_username",
+                "desc": "Username"
+            }]
+        }, {
+            "type": "password",
+            "subitems": [{
+                "key": "wizard_email_password",
+                "desc": "password"
+            }]
+        }, {
+            "type": "textfield",
+            "subitems": [{
+                "key": "wizard_email_inbox",
+                "desc": "Inbox",
+                "defaultValue": "INBOX"
+            }, {
+                "key": "wizard_email_secret",
+                "desc" : "Secret"
             }]
         }]
     }, {
@@ -67,4 +138,5 @@ cat <<EOF > $SYNOPKG_TEMP_LOGFILE
         }]
     }
 ] EOF
+cat "$SYNOPKG_TEMP_LOGFILE" > /tmp/paperless.debug
 exit 0
