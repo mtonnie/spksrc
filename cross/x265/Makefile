@@ -1,11 +1,12 @@
 PKG_NAME = x265
-PKG_VERS = 2.9
+PKG_VERS = 3.3
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME)_$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = https://bitbucket.org/multicoreware/x265/downloads
 PKG_DIR = $(PKG_NAME)_$(PKG_VERS)/source
 
 DEPENDS =
+OPTIONAL_DEPENDS = native/nasm cross/libnuma
 
 HOMEPAGE = http://x265.org/
 COMMENT  = x265 is an open source HEVC encoder.

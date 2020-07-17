@@ -11,10 +11,16 @@ include ../../mk/spksrc.directories.mk
 URLS          = $(TC_DIST_SITE)/$(TC_DIST_NAME)
 NAME          = $(TC_NAME)
 COOKIE_PREFIX = $(TC_NAME)-
-DIST_FILE     = $(TOOLCHAINS_DIR)/$(TC_VERS)/$(TC_DIST_NAME)
-DIST_EXT      = $(TC_EXT)
-DISTRIB_DIR   = $(TOOLCHAINS_DIR)/$(TC_VERS)
+ifneq ($(TC_DIST_FILE),)
+LOCAL_FILE    = $(TC_DIST_FILE)
+# download.mk uses PKG_DIST_FILE
+PKG_DIST_FILE = $(TC_DIST_FILE)
+else
 LOCAL_FILE    = $(TC_DIST_NAME)
+endif
+DISTRIB_DIR   = $(TOOLCHAINS_DIR)/$(TC_VERS)
+DIST_FILE     = $(DISTRIB_DIR)/$(LOCAL_FILE)
+DIST_EXT      = $(TC_EXT)
 
 #####
 
@@ -86,14 +92,5 @@ tc_vars: patch
 clean:
 	rm -fr $(WORK_DIR)
 
-$(DIGESTS_FILE): download
-	@$(MSG) "Generating digests for $(TC_NAME)"
-	@rm -f $@ && touch -f $@
-	@for type in SHA1 SHA256 MD5; do \
-	  case $$type in \
-	    SHA1)     tool=sha1sum ;; \
-	    SHA256)   tool=sha256sum ;; \
-	    MD5)      tool=md5sum ;; \
-	  esac ; \
-	  echo "$(LOCAL_FILE) $$type `$$tool $(DIST_FILE) | cut -d\" \" -f1`" >> $@ ; \
-	done
+### For make digests
+include ../../mk/spksrc.generate-digests.mk
