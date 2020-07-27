@@ -21,21 +21,7 @@ SPK_FILE_NAME = $(PACKAGES_DIR)/$(SPK_NAME)_$(SPK_NAME_ARCH)-$(SPK_TCVERS)_$(SPK
 
 #####
 
-# Check if package supports ARCH
-ifneq ($(UNSUPPORTED_ARCHS),)
-  ifneq (,$(findstring $(ARCH),$(UNSUPPORTED_ARCHS)))
-    @$(error Arch '$(ARCH)' is not a supported architecture )
-  endif
-endif
-
-# Check minimum DSM requirements of package
-ifneq ($(REQUIRED_DSM),)
-  ifneq ($(REQUIRED_DSM),$(firstword $(sort $(TCVERSION) $(REQUIRED_DSM))))
-    @$(error Toolchain $(TCVERSION) is lower than required version in Makefile $(REQUIRED_DSM) )
-  endif
-endif
-
-#####
+include ../../mk/spksrc.pre-check.mk
 
 # Even though this makefile doesn't cross compile, we need this to setup the cross environment.
 include ../../mk/spksrc.cross-env.mk
@@ -94,12 +80,10 @@ ifneq ($(strip $(SPK_ICON)),)
 include ../../mk/spksrc.icon.mk
 endif
 
-.PHONY: $(WORK_DIR)/INFO
 $(WORK_DIR)/INFO:
 	$(create_target_dir)
 	@$(MSG) "Creating INFO file for $(SPK_NAME)"
 	@echo package=\"$(SPK_NAME)\" > $@
-	@echo dsmappname=\"com.synocommunity.$(SPK_NAME)\" >> $@
 	@echo thirdparty=\"yes\" >> $@
 	@echo version=\"$(SPK_VERS)-$(SPK_REV)\" >> $@
 	@/bin/echo -n "description=\"" >> $@
@@ -128,6 +112,7 @@ else ifneq ($(strip $(TC_FIRMWARE)),)
 	@echo firmware=\"$(TC_FIRMWARE)\" >> $@
 	@echo os_min_ver=\"$(TC_FIRMWARE)\" >> $@
 else ifneq ($(strip $(TC_OS_MIN_VER)),)
+	@echo firmware=\"$(TC_OS_MIN_VER)\" >> $@
 	@echo os_min_ver=\"$(TC_OS_MIN_VER)\" >> $@
 else
 	@echo firmware=\"3.1-1594\" >> $@
@@ -172,6 +157,8 @@ ifneq ($(strip $(DSM_UI_DIR)),)
 endif
 ifneq ($(strip $(DSM_APP_NAME)),)
 	@echo dsmappname=\"$(DSM_APP_NAME)\" >> $@
+else
+	@echo dsmappname=\"com.synocommunity.$(SPK_NAME)\" >> $@
 endif
 ifneq ($(strip $(ADMIN_PROTOCOL)),)
 	@echo adminprotocol=\"$(ADMIN_PROTOCOL)\" >> $@
@@ -335,12 +322,8 @@ clean:
 
 all: package
 
-dependency-tree:
-	@echo `perl -e 'print "\\\t" x $(MAKELEVEL),"\n"'`+ $(NAME)
-	@for depend in $(BUILD_DEPENDS) $(DEPENDS) ; \
-	do \
-	  $(MAKE) --no-print-directory -C ../../$$depend dependency-tree ; \
-	done
+### For make dependency-tree
+include ../../mk/spksrc.dependency-tree.mk
 
 .PHONY: all-archs
 all-archs: $(addprefix arch-,$(AVAILABLE_ARCHS))
@@ -463,15 +446,7 @@ changelog:
 
 ####
 
-.PHONY: kernel-required
-kernel-required:
-	@if [ -n "$(REQ_KERNEL)" ]; then \
-	  exit 1 ; \
-	fi
-	@for depend in $(BUILD_DEPENDS) $(DEPENDS) ; do \
-	  if $(MAKE) --no-print-directory -C ../../$$depend kernel-required >/dev/null 2>&1 ; then \
-	    exit 0 ; \
-	  else \
-	    exit 1 ; \
-	  fi ; \
-	done
+### For make kernel-required
+include ../../mk/spksrc.kernel-required.mk
+
+####
