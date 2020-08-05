@@ -1,3 +1,13 @@
+bin:bin/convertfilestopdf
+bin:bin/convertfilestops
+bin:bin/convertformat
+bin:bin/convertsegfilestopdf
+bin:bin/convertsegfilestops
+bin:bin/converttopdf
+bin:bin/converttops
+bin:bin/fileinfo
+bin:bin/imagetops
+bin:bin/xtractprotos
 lnk:lib/liblept.so
 lnk:lib/liblept.so.5
 lib:lib/liblept.so.5.0.3

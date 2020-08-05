@@ -1,5 +1,5 @@
 PKG_NAME = tesseract
-PKG_VERS = 3.05.02
+PKG_VERS = 4.1.0
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_VERS).$(PKG_EXT)
 PKG_DIST_FILE = $(PKG_NAME)-ocr-$(PKG_VERS).$(PKG_EXT)
@@ -29,6 +29,10 @@ endif
 PRE_CONFIGURE_TARGET = tesseract_pre_configure
 
 include ../../mk/spksrc.cross-cc.mk
+
+.PHONY: tesseract_pre_configure
+tesseract_pre_configure:
+	$(RUN) ./autogen.sh
 
 
 .PHONY: tesseract_pre_configure
