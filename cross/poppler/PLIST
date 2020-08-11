@@ -1,0 +1,17 @@
+bin:bin/pdfattach
+bin:bin/pdfdetach
+bin:bin/pdffonts
+bin:bin/pdfimages
+bin:bin/pdfinfo
+bin:bin/pdfseparate
+bin:bin/pdftohtml
+bin:bin/pdftoppm
+bin:bin/pdftops
+bin:bin/pdftotext
+bin:bin/pdfunite
+lib:lib/libpoppler.so.87.0.0
+lnk:lib/libpoppler.so.87
+lnk:lib/libpoppler.so
+lib:lib/libpoppler-cpp.so.0.7.0
+lnk:lib/libpoppler-cpp.so.0
+lnk:lib/libpoppler-cpp.so
