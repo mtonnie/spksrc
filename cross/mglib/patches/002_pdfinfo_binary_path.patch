@@ -1,0 +1,20 @@
+--- mglib/pdfinfo.py.orig	2020-08-10 16:08:04.518848968 +0000
++++ mglib/pdfinfo.py	2020-08-10 16:09:05.506589129 +0000
+@@ -13,7 +13,7 @@
+ 
+ def get_tiff_pagecount(filepath):
+     cmd = [
+-        "/usr/bin/identify",
++        "identify",
+         "-format",
+         "%n\n",
+         filepath
+@@ -79,7 +79,7 @@
+ 
+     # pdfinfo "${PDFFILE}" | grep Pages
+ 
+-    cmd = ["/usr/bin/pdfinfo", filepath]
++    cmd = ["pdfinfo", filepath]
+     compl = subprocess.run(
+         cmd,
+         stdout=subprocess.PIPE,

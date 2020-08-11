@@ -1,0 +1,11 @@
+--- papermerge/core/management/commands/worker.py.orig	2020-08-08 12:04:11.385353873 +0000
++++ papermerge/core/management/commands/worker.py	2020-08-08 13:54:24.036431310 +0000
+@@ -115,6 +115,7 @@
+             app=celery_app,
+             beat=True,
+             quiet=True,
+-            concurrency=1
++            concurrency=1,
++            pidfile="/var/packages/papermerge/target/var/papermerge_worker.pid"
+         )
+         celery_worker.start()

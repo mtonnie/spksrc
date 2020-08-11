@@ -1,0 +1,105 @@
+#  papermerge-worker  #
+#boto3==1.14.32
+##botocore
+####docutils
+####jmespath
+####python-dateutil
+######six
+####urllib3
+##jmespath
+##s3transfer
+####botocore
+######docutils [required: >=0.10,<0.16, installed: 0.15.2]
+######jmespath [required: >=0.7.1,<1.0.0, installed: 0.10.0]
+######python-dateutil [required: >=2.1,<3.0.0, installed: 2.8.1]
+########six [required: >=1.5, installed: 1.15.0]
+######urllib3 [required: >=1.20,<1.26, installed: 1.25.10]
+#celery==4.4.6
+##billiard
+##future
+##kombu
+####amqp
+######vine
+##pytz
+##vine
+## papermerge-worker ##
+
+
+#  papermerge  #
+django-allauth==0.42.0
+  django==3.0.8
+    asgiref
+    pytz 
+    sqlparse
+  python3-openid
+    defusedxml
+  requests 
+    certifi
+    chardet 
+####idna
+    urllib3
+  requests-oauthlib 
+    oauthlib 
+####requests
+######certifi
+######chardet
+######idna
+######urllib3
+django-celery-results==1.2.1
+  celery==4.4.0
+    billiard>=3.6.1,<4.0
+    kombu>=4.6.7,<4.7
+      amqp>=2.6.0,<2.7
+        vine==1.3.0
+####pytz
+####vine
+django-dynamic-preferences==1.10
+##django 
+####asgiref 
+####pytz 
+####sqlparse 
+  persisting-theory 
+##six 
+django-modelcluster==5.0.2
+##pytz 
+django-polymorphic-tree==1.5.1
+  django-mptt
+####Django
+######asgiref
+######pytz
+######sqlparse
+    django-js-asset
+    django-polymorphic
+######Django
+########asgiref 
+########pytz 
+########sqlparse 
+  django-tag-parser 
+  future 
+django-rest-knox==4.1.0
+##cryptography
+####cffi
+######pycparser
+####six
+##django 
+####asgiref
+####pytz
+####sqlparse
+  djangorestframework
+######django
+########asgiref
+########pytz
+########sqlparse
+IMAPClient==2.1.0
+##six
+#lxml==4.5.2
+mgclipboard==0.2.0
+mglib==1.2.5
+#PyYAML==5.3.1
+## papermerge ##
+
+#stapler==1.0.0
+pypdf2>=1.26
+more_itertools
+
+gunicorn

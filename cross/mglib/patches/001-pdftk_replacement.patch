@@ -1,0 +1,38 @@
+--- mglib/pdftk.py.orig	2020-08-07 08:54:02.299767601 +0000
++++ mglib/pdftk.py	2020-08-07 08:59:50.982610406 +0000
+@@ -183,7 +183,7 @@
+         )
+ 
+     cmd = [
+-        "pdftk",
++        "stapler",
+     ]
+     # add A=doc1_path, B=doc2_path
+     cmd.extend(letters_2_doc_map)
+@@ -272,7 +272,7 @@
+             )
+ 
+     cmd = [
+-        "pdftk",
++        "stapler",
+     ]
+     # add A=doc1_path, B=doc2_path
+     cmd.extend(letters_2_doc_map)
+@@ -315,7 +315,7 @@
+     )
+ 
+     cmd = [
+-        "pdftk",
++        "stapler",
+         src,
+         "cat"
+     ]
+@@ -338,7 +338,7 @@
+     )
+ 
+     cmd = [
+-        "pdftk",
++        "stapler",
+         src,
+         "cat"
+     ]
