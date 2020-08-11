@@ -1,5 +1,0 @@
-tasks:
-  - init: make setup 
-    command: unset PIP_USER
-  
-image: synocommunity/spksrc:latest
