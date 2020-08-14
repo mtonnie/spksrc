@@ -27,6 +27,7 @@ ADDITIONAL_CXXFLAGS = -std=gnu++0x
 endif
 
 PRE_CONFIGURE_TARGET = tesseract_pre_configure
+POST_INSTALL_TARGET = resseract_post_install
 
 include ../../mk/spksrc.cross-cc.mk
 
@@ -34,7 +35,6 @@ include ../../mk/spksrc.cross-cc.mk
 tesseract_pre_configure:
 	$(RUN) ./autogen.sh
 
-
-.PHONY: tesseract_pre_configure
-tesseract_pre_configure:
-	$(RUN) ./autogen.sh
+.PHONY: tesseract_post_install
+tesseract_post_configure:
+	mkdir -p $(STAGING_INSTALL_PREFIX)/share/tessdata
