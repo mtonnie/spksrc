@@ -94,7 +94,7 @@ IMAPClient==2.1.0
 ##six
 #lxml==4.5.2
 mgclipboard==0.2.0
-mglib==1.2.5
+mglib==1.2.6
 #PyYAML==5.3.1
 ## papermerge ##
 
@@ -103,3 +103,4 @@ pypdf2>=1.26
 more_itertools
 
 gunicorn
+whitenoise

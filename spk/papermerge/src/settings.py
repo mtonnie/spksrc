@@ -1,6 +1,25 @@
 from .base import *
 
+DEBUG = False
+INTERNAL_IPS = ['127.0.0.1',]
+
 DEFAULT_CONFIG_PLACES.insert(0, "/var/packages/papermerge/etc/papermerge.conf.py")
+
+if DEBUG:
+    INSTALLED_APPS.insert(0, 'whitenoise.runserver_nostatic')
+else:
+    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+    #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+ALLOWED_HOSTS = cfg_papermerge.get(
+    "ALLOWED_HOSTS",
+    "[\"*\"]"
+)
+
+TIME_ZONE = cfg_papermerge.get(
+    "TIME_ZONE",
+    "UTC"
+)
 
 LOGGING = {
     'version': 1,
@@ -26,7 +45,7 @@ LOGGING = {
         },
         'celery': {
             'handlers': ['file_worker'],
-            'level': 'INFO'
+            'level': 'DEBUG'
         },
     },
 }

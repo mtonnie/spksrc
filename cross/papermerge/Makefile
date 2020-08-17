@@ -1,12 +1,12 @@
 PKG_NAME = papermerge
-PKG_VERS = cca763accc7a719fc419d2b9ccfb336f513bd3f3
+PKG_VERS = b9982e511c1a0f5bc52a7b3166cb3bd4426603fe
 PKG_EXT = zip
 PKG_DIST_NAME = $(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = https://github.com/ciur/papermerge/archive/
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 HOMEPAGE = https://github.com/ciur/papermerge
-COMMENT  = tbc
+COMMENT  = Open Source Document Management System for Electronic Archives
 LICENSE  = Apache-2.0 License
 
 CONFIGURE_TARGET = nop
@@ -27,7 +27,7 @@ papermerge_custom_install:
 	rm  -f $(STAGING_INSTALL_PREFIX)/share/papermerge/config/settings/test.py
 	rm  -rf $(STAGING_INSTALL_PREFIX)/share/papermerge/docker
 	rm  -rf $(STAGING_INSTALL_PREFIX)/share/papermerge/docs
-	rm  -rf $(STAGING_INSTALL_PREFIX)/share/papermerge/example_data
+	#rm  -rf $(STAGING_INSTALL_PREFIX)/share/papermerge/example_data
 	rm  -rf $(STAGING_INSTALL_PREFIX)/share/papermerge/requirements
 	rm  -rf $(STAGING_INSTALL_PREFIX)/share/papermerge/screenshots
 	rm  -f $(STAGING_INSTALL_PREFIX)/share/papermerge/.gitignore

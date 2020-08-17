@@ -2,4 +2,4 @@ image: synocommunity/spksrc:latest
 
 tasks:
   - init: echo 'init script' # runs during prebuild
-    command: echo 'start script'
+    command: unset PIP_USER

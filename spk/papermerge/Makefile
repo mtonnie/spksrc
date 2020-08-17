@@ -1,19 +1,21 @@
 SPK_NAME = papermerge
-SPK_VERS = 1.4.0.rc3
+SPK_VERS = 1.4.0.rc4
 SPK_REV = 1
 SPK_ICON = src/${SPK_NAME}.png
 
 BUILD_DEPENDS = cross/python3 cross/setuptools cross/pip cross/wheel
-DEPENDS = cross/$(SPK_NAME) cross/mglib
-DEPENDS += cross/poppler
+DEPENDS = cross/$(SPK_NAME) 
+#DEPENDS += cross/mglib
+DEPENDS += cross/stapler # Replacment for pdftk
+DEPENDS += cross/poppler cross/file
 
 WHEELS = src/requirements.txt
-SPK_DEPENDS = "python3>=3.7.7:tesseract-ocr>=4.0.1:imagemagick>=7.0.8"
+SPK_DEPENDS = "python3>=3.7.7:tesseract-ocr>=4.0.1"
 
-MAINTAINER = tbd
-DESCRIPTION = tbc
+MAINTAINER = "https://papermerge.com"
+DESCRIPTION = "Open Source Document Management System for Electronic Archives"
 DISPLAY_NAME = Papermerge
-CHANGELOG = "Inital package release"
+CHANGELOG = "Initial public beta build, based on commit b9982e511c1a0f5bc52a7b3166cb3bd4426603fe"
 RELOAD_UI = no
 STARTABLE = yes
 
@@ -43,3 +45,4 @@ include ../../mk/spksrc.spk.mk
 
 papermerge_extra_install:
 	install -m 644 src/settings.py $(STAGING_DIR)/share/papermerge/config/settings/synology.py
+	install -m 755 src/pdftk.sh $(STAGING_DIR)/bin/pdftk.sh
