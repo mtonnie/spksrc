@@ -11,7 +11,7 @@ MANAGE_PY="${SYNOPKG_PKGDEST}/share/papermerge/manage.py"
 WORKER_PID_FILE="${SYNOPKG_PKGDEST}/var/${SYNOPKG_PKGNAME}_worker.pid"
 
 GROUP="sc-papermerge"
-SERVICE_COMMAND="${SYNOPKG_PKGDEST}/env/bin/gunicorn config.wsgi --bind ${NETWORK_BIND}:8880 --log-file ${LOG_FILE} --pid ${PID_FILE} --workers=1 --chdir=${SYNOPKG_PKGDEST}/share/papermerge --daemon"
+SERVICE_COMMAND="${SYNOPKG_PKGDEST}/env/bin/gunicorn config.wsgi --bind ${GUNICORN_NETWORK_BIND}:8880 --log-file ${LOG_FILE} --pid ${PID_FILE} --workers=1 --chdir=${SYNOPKG_PKGDEST}/share/papermerge --daemon"
 
 if [ "$wizard_storage_kind" == "new" ]; then
     SHARE_PATH="${wizard_storage_volume}/${wizard_storage_name}"
@@ -348,6 +348,7 @@ service_postinst ()
     # Export required environment variables 
     export DJANGO_SETTINGS_MODULE=config.settings.synology
     export PAPERMERGE_CONFIG="${PAPERMERGE_CONF}"
+    export GUNICORN_NETWORK_BIND="${NETWORK_BIND}"
 
     # Initialize database & create admin user
     if [ ! -r "${PAPERMERGE_DBDIR}/db.sqlite3" ]; then
