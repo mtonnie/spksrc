@@ -15,7 +15,7 @@ SPK_DEPENDS = "python3>=3.7.7:tesseract-ocr>=4.0.1"
 MAINTAINER = "https://papermerge.com"
 DESCRIPTION = "Open Source Document Management System for Electronic Archives"
 DISPLAY_NAME = Papermerge
-CHANGELOG = "Initial public beta build, based on commit b9982e511c1a0f5bc52a7b3166cb3bd4426603fe"
+CHANGELOG = "Initial public beta build, based on commit b9982e511c1a0f5bc52a7b3166cb3bd4426603fe (release 1.4.0)"
 RELOAD_UI = no
 STARTABLE = yes
 
