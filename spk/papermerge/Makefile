@@ -23,6 +23,7 @@ BETA = 1
 
 HOMEPAGE = https://www.papermerge.com/
 LICENSE  = Apache License 2.0
+REPORT_URL = https://github.com/ciur/papermerge/issues/
 
 WIZARDS_DIR = src/wizard/
 
