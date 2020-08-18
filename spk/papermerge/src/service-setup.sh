@@ -305,8 +305,9 @@ service_postinst ()
             synoacltool -del "${SHARE_PATH}" "${G_INDEX}" >> ${INST_LOG}
         fi
     fi
-    G_ENTRY=$(echo "${G_ENTRY}" | sed 's/A/-/g' | sed 's/W/-/g' | sed 's/C/-/g')
-    #Create directories
+    synoacltool -add "${SHARE_PATH}" "group:${GROUP}:allow:r-x---a-R----:---n" >> ${INST_LOG}
+    G_ENTRY=$(echo "${G_ENTRY}" | sed 's/C/-/g')
+    # Create directories
     echo "Processing directory ${PAPERMERGE_DBDIR}" >> ${INST_LOG}
     if [ ! -d "${PAPERMERGE_DBDIR}" ]; then
         mkdir -p "${PAPERMERGE_DBDIR}"
@@ -326,6 +327,7 @@ service_postinst ()
     echo "Processing directory ${PAPERMERGE_IMPORTERDIR}" >> ${INST_LOG}
     if [ ! -d ${PAPERMERGE_IMPORTERDIR} ]; then
         mkdir -p ${PAPERMERGE_IMPORTERDIR}
+        echo "${G_ENTRY}" >> ${INST_LOG}
         synoacltool -add "${PAPERMERGE_IMPORTERDIR}" "${G_ENTRY}" >> ${INST_LOG}
         synoacltool -set-owner "${PAPERMERGE_IMPORTERDIR}" user "${EFF_USER}" >> ${INST_LOG}
     fi
@@ -333,6 +335,8 @@ service_postinst ()
     if [ ! -d ${PAPERMERGE_STATICDIR} ]; then
         mkdir -p ${PAPERMERGE_STATICDIR}
     fi
+
+
 
     # Create papermerge.conf.py
     if [ ! -e "${PAPERMERGE_CONF}" ]; then
