@@ -1,6 +1,6 @@
 SPK_NAME = git
 SPK_VERS = 2.26.2
-SPK_REV = 13
+SPK_REV = 14
 SPK_ICON = src/git.png
 
 DEPENDS = cross/$(SPK_NAME)
@@ -16,8 +16,5 @@ HOMEPAGE = http://git-scm.com
 LICENSE  = GPLv2
 
 SPK_COMMANDS = bin/git bin/git-cvsserver bin/git-receive-pack bin/git-shell bin/git-upload-archive bin/git-upload-pack
-
-# build cross/curl without bundle of ca certificates (cert.pem)
-export CURL_SKIP_CA_BUNDLE = true
 
 include ../../mk/spksrc.spk.mk
