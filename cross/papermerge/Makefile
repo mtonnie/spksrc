@@ -1,5 +1,5 @@
 PKG_NAME = papermerge
-PKG_VERS = b9982e511c1a0f5bc52a7b3166cb3bd4426603fe
+PKG_VERS = 7bfa4373764814e4c7f69489b14ada05d717b2bf
 PKG_EXT = zip
 PKG_DIST_NAME = $(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = https://github.com/ciur/papermerge/archive/
