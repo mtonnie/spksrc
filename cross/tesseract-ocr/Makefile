@@ -15,16 +15,8 @@ LICENSE  = Apache License 2.0
 GNU_CONFIGURE = 1
 CONFIGURE_ARGS = LIBLEPT_HEADERSDIR=$(STAGING_INSTALL_PREFIX)/include/leptonica
 
-include ../../mk/spksrc.common.mk
-
-ifeq ($(findstring $(ARCH), powerpc ppc824x ppc853x ppc854x),$(ARCH))
-# workaround and experimental c++ features for g++ compiler:
-ADDITIONAL_CXXFLAGS = -D nullptr=NULL -std=gnu++0x
-endif
-ifeq ($(findstring $(ARCH), $(ARM5_ARCHES)),$(ARCH))
-# enable experimental features for (old) g++ compiler:
-ADDITIONAL_CXXFLAGS = -std=gnu++0x
-endif
+# tesseract doesn't build with ARMv5 (88f6281) missing c++11 support
+UNSUPPORTED_ARCHS = ${ARM5_ARCHES} ${PPC_ARCHES} 
 
 PRE_CONFIGURE_TARGET = tesseract_pre_configure
 POST_INSTALL_TARGET = resseract_post_install

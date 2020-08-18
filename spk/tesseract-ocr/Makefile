@@ -20,5 +20,7 @@ WIZARDS_DIR = src/wizard/
 STARTABLE = no
 SERVICE_SETUP = src/service-setup.sh
 
+# tesseract doesn't build with ARMv5 (88f6281) missing c++11 support
+UNSUPPORTED_ARCHS = ${ARM5_ARCHES} ${PPC_ARCHES} 
 
 include ../../mk/spksrc.spk.mk
