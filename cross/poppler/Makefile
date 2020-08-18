@@ -12,7 +12,9 @@ DEPENDS += cross/fontconfig cross/libjpeg cross/libxml2 cross/zlib
 
 HOMEPAGE = https://poppler.freedesktop.org/
 COMMENT  = Poppler is a PDF rendering library based on the xpdf-3.0 code base. 
-LICENSE  = ???
+LICENSE  = GPLv2
+
+UNSUPPORTED_ARCHS = ${ARM5_ARCHES}
 
 CONFIGURE_TARGET = poppler_custom_configure
 INSTALL_TARGET = poppler_custom_install
